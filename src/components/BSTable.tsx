@@ -38,7 +38,7 @@ const BSTable = ( { commits } ) => {
                     </TR>
                 </thead>
                 <tbody>
-                    { commits.slice(0).reverse().map( object => {
+                    { commits.map( object => {
                         return(
                             <TR key={object.sha}>
                                 <td>
