@@ -27,8 +27,8 @@ const Text = styled.span`
 
 const Main = () => {
 
-    const [githubOwner, setGithubOwner] = useState("Neovhack")
-    const [githubRepo, setGithubRepo] = useState("repositorio_coder");
+    const [githubOwner, setGithubOwner] = useState("AlejandroWilcke")
+    const [githubRepo, setGithubRepo] = useState("aleee");
     const [githubCommits, setGithubCommits] = useState([]);
     const [ownerSearchValue, setOwnerSearchValue] = useState("");
     const [repoSearchValue, setRepoSearchValue] = useState("");
