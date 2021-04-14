@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Table } from 'react-bootstrap';
+import { parseDate } from '../utils/Date';
 
 const TableContainer = styled.div`
     width: 100%;
@@ -27,9 +28,14 @@ const A = styled.a`
 `
 
 const BSTable = ( { commits } ) => {
+    
+    const parseCommitMessage = ( message : string ) => {
+        return message.length > 35 ? message.substring(0, 32) + "..." : message;
+    }
+
     return(
         <TableContainer>
-            <Table responsive bordered hover size="sm">
+            <Table  bordered hover size="sm" style={{borderRadius: "20px !important"}}>
                 <thead>
                     <TR>
                         <th>User</th>
@@ -46,9 +52,9 @@ const BSTable = ( { commits } ) => {
                                     <A href={object.author.html_url} target="_blank">{object.author.login}</A>
                                 </td>
                                 <td>
-                                    <A href={object.html_url} target="_blank">{object.commit.message.substring(0, 30)}</A>
+                                    <A href={object.html_url} target="_blank">{parseCommitMessage(object.commit.message)}</A>
                                 </td>
-                                <td>{object.commit.author.date}</td>
+                                <td>{parseDate(object.commit.author.date)}</td>
                             </TR>
                         )
                     } ) }
